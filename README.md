@@ -4,19 +4,19 @@ Dessert App is a simple dessert management and ordering web application created 
 ## Features
 ### Admin
 Categories
-- Create desert categories or types and add a description.
-- Edit desert category or type information.
+- Create dessert categories or types and add a description.
+- Edit dessert category or type information.
 Desert Products
-- Create desert products by adding their name, type, and price.
-- Edit desert product information.
+- Create dessert products by adding their name, type, and price.
+- Edit dessert product information.
 Users
 - Create or add a user by adding the following: username, first name, last name, password, and user role (Admin or Customer).
 - Edit user type.
 
 ### Customer
 Order
-- Add desert items to their cart after selecting a quantity.
-- Remove desert items from their cart.
+- Add dessert items to their cart after selecting a quantity.
+- Remove dessert items from their cart.
 - Place their order.
 Order History
 - View order history
@@ -54,11 +54,20 @@ Order History
     <img src="https://user-images.githubusercontent.com/89372511/211853951-36aa1ff7-b9ef-40c1-9fbe-b648b55c8a77.PNG"></img>
     <p>Edit Desert</p>
   </div>
-
-
-
-![Capture14](https://user-images.githubusercontent.com/89372511/211854006-895664ff-1837-4081-ac96-15e9699cd8d3.PNG)
-![Capture15](https://user-images.githubusercontent.com/89372511/211854040-8fa5d8ea-8532-4cb9-80bd-89fdc8963c21.PNG)
-![Capture16](https://user-images.githubusercontent.com/89372511/211854071-5a1e80c3-57ae-4d1c-881c-2601c4bed8c8.PNG)
-![Capture17](https://user-images.githubusercontent.com/89372511/211854108-e3922a94-41a0-41a7-8c21-737ca10e6c86.PNG)
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211854006-895664ff-1837-4081-ac96-15e9699cd8d3.PNG"></img>
+    <p>User Accounts</p>
+  </div>
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211854040-8fa5d8ea-8532-4cb9-80bd-89fdc8963c21.PNG"></img>
+    <p>Edit User Role</p>
+  </div>
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211854071-5a1e80c3-57ae-4d1c-881c-2601c4bed8c8.PNG"></img>
+    <p>Orders</p>
+  </div>
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211854108-e3922a94-41a0-41a7-8c21-737ca10e6c86.PNG"></img>
+    <p>Order Details</p>
+  </div>
 </details>

@@ -30,10 +30,6 @@ Order History
 <details>
 <summary>Admin View</summary>
 <br>
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/89372511/211853597-4eb89cb1-e295-426f-9948-dee213b1ea91.PNG"></img>
-    <p>Login</p>
-  </div>
   <div align="center">
     <img src="https://user-images.githubusercontent.com/89372511/211853760-8e0b2266-bcde-48c2-a1d7-3dfe9cd1bbd9.PNG"></img>
     <p>Admin Dashboard</p>
@@ -98,6 +94,10 @@ Order History
 <details>
 <summary>All Users View</summary>
 <br>
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211853597-4eb89cb1-e295-426f-9948-dee213b1ea91.PNG"></img>
+    <p>Login</p>
+  </div>
   <div align="center">
     <img src="https://user-images.githubusercontent.com/89372511/211868473-04267c2f-2b0d-47b1-aede-34e5a38f31cd.PNG"></img>
     <p>User Profile</p>

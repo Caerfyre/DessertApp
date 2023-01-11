@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "ShowDesserts";
+    Layout = "~/Views/Shared/DessertAppTemplate.cshtml";
+    List<Dessert>dessertList = ((IEnumerable<Dessert>)ViewData["dessertList"]).ToList();
+}
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Dessert Products</h1>
+
+    <!-- Table -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Dessert Products</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Dessert ID</th>
+                            <th>Dessert Name</th>
+                            <th>Dessert Type</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @{ int count = 1;}
+                        @foreach (var dessert in dessertList)
+                        {
+                        <tr>
+                            <td>@(count++)</td>
+                            <td>@dessert.DessertID</td>
+                            <td>@dessert.DessertName</td>
+                            <td>@dessert.DessertType.TypeName</td>
+                            <td>@dessert.DessertPrice</td>
+                            <td>
+                                <a href="EditDessert?dessertID=@dessert.DessertID" class="btn btn-primary btn-sm">Edit</a>
+                                &nbsp;&nbsp;
+                                <a href="DeleteDessert?dessertID=@dessert.DessertID" class="btn btn-danger btn-sm" >Delete</a>
+                            </td>
+
+                        </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

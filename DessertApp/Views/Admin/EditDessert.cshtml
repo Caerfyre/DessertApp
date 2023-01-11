@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "EditDessert";
+    Layout = "~/Views/Shared/DessertAppTemplate.cshtml";
+}
+
+@model DessertApp.Dessert
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Edit Dessert</h1>
+
+    <!-- Form -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Edit Dessert</h6>
+        </div>
+        <div class="card-body">
+
+            @using (Html.BeginForm("EditingDessert", "Admin", FormMethod.Post))
+            {
+
+                @Html.HiddenFor(model => model.DessertID)
+
+                <div class="form-group">
+                    <label>Edit Dessert Name</label>
+                    @Html.TextBoxFor(model => model.DessertName, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Dessert Type</label>
+                    @Html.DropDownListFor(model => model.DessertTypeID, (IEnumerable<SelectListItem>)ViewBag.dessertTypes,
+                     new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Edit Dessert Price</label>
+                    @Html.TextBoxFor(model => model.DessertPrice, new { @class = "form-control", @type = "number" })
+                </div>
+
+                <button class="btn btn-primary" type="submit">Edit Dessert Product</button>
+            }
+
+        </div>
+    </div>
+
+</div>

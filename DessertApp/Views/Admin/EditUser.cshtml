@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/DessertAppTemplate.cshtml";
+}
+
+@model DessertApp.User
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Edit User</h1>
+
+    <!-- Form -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="d-flex justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Edit User Role</h6>
+                <a class="btn btn-dark btn-sm" href="@Url.Action("ShowUsers","Admin")">
+                    Return
+                </a>
+            </div>
+                
+        </div>
+    <div class="card-body">
+
+                <div class="row justify-content-center">
+                    @using (Html.BeginForm("EditingUser", "Admin", FormMethod.Post, new { @class = "col-4 " }))
+                    {
+
+                        <div class="form-group text-center">
+                            <label class="font-weight-bold">User ID:</label>
+                            @Html.DisplayFor(model => model.userID)
+                            @Html.HiddenFor(model => model.userID)
+                        </div>
+                        <div class="form-group text-center">
+                            <label class="font-weight-bold">Username:</label>
+                            @Html.DisplayFor(model => model.username)
+                            @Html.HiddenFor(model => model.username)
+                        </div>
+                        <div class="form-group text-center">
+                            <label class="font-weight-bold">First Name:</label>
+                            @Html.DisplayFor(model => model.fname)
+                            @Html.HiddenFor(model => model.fname)
+                        </div>
+                        <div class="form-group text-center">
+                            <label class="font-weight-bold">Last Name:</label>
+                            @Html.DisplayFor(model => model.lname)
+                            @Html.HiddenFor(model => model.lname)
+                        </div>
+                        @Html.HiddenFor(model => model.password)
+
+                        <div class="form-group form-inline justify-content-center">
+                            <label class="font-weight-bold">Edit User Type:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.DropDownListFor(model => model.userType, (IEnumerable<SelectListItem>)ViewBag.rolesList,
+                             new { @class = "form-control" })
+                        </div><hr>
+
+                        <button class="btn btn-primary btn-block" type="submit">Edit User Role</button>
+                    }
+                </div>
+
+
+            </div>
+        </div>
+
+</div>

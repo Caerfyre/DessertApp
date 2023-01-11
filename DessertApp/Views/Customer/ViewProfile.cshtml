@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "ViewProfile";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+    var UserInfo = ViewData["userInfo"] as User;
+}
+
+
+<div class="container-fluid">
+
+    <h1 class="h3 mb-2 text-gray-800">User Profile</h1>
+
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Your Profile</h6>
+        </div>
+        <div class="card-body">
+
+            <div class="row justify-content-center">
+
+                <div class="col-4">
+                    <div class="form-group text-center">
+                        <img class="img-profile rounded-circle center-block" height="150px"
+                             src="~/content/template/img/undraw_profile.svg">
+                    </div>
+                    <hr>
+
+                    <div class="form-group text-center">
+                        <label class="font-weight-bold">User ID:</label>
+                        <p>@UserInfo.userID</p>
+                    </div>
+                    <div class="form-group text-center">
+                        <label class="font-weight-bold">Username:</label>
+                        <p>@UserInfo.username</p>
+                    </div>
+                    <div class="form-group text-center">
+                        <label class="font-weight-bold">Name:</label>
+                        <p>@UserInfo.fname @UserInfo.lname</p>
+                    </div>
+
+                    <hr>
+
+                    <a class="btn btn-primary btn-block" href="EditProfile?accID=@UserInfo.userID">Edit Profile</a>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,222 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/DessertAppTemplate.cshtml";
+}
+
+<h2>Dashboard</h2>
+
+<!-- Content Row -->
+<div class="row">
+
+    <!-- Categories -->
+    <div class="col-xl-3 col-md-6 mb-4">
+
+        <a class="text-decoration-none" href="@Url.Action("ShowCategories", "Admin")">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Categories
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewData["typesNum"] Types</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-tags fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- Dessert Products -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <a class="text-decoration-none" href="@Url.Action("ShowDesserts", "Admin")">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Dessert Products
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewData["dessertsNum"] Products</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-birthday-cake fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- Users -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <a class="text-decoration-none" href="@Url.Action("ShowUsers", "Admin")">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Users
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@ViewData["usersNum"] Users</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- Orders -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <a class="text-decoration-none" href="@Url.Action("ShowOrders", "Admin")">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Orders
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewData["ordersNum"] Orders</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<!-- Content Row -->
+<!-- Content Row -->
+<h2>Quick Access</h2>
+<div class="row my-3">
+
+    <div class="col-xl-4 col-lg-5 mb-4">
+        <!-- Form -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Add Dessert Type</h6>
+            </div>
+            <div class="card-body">
+
+                <form method="post" action="AddingCategory">
+                    <div class="form-group">
+                        <label>Dessert Type</label>
+                        <input type="text" class="form-control form-control-sm" name="typeName" placeholder="Enter Type Name..">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Type Description</label>
+                        <textarea class="form-control form-control-sm" name="typeDesc" aria-label="With textarea" placeholder="Enter Type Description.."></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Add Dessert Type</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-5 mb-4">
+        <!-- Form -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Add Dessert Product</h6>
+            </div>
+            <div class="card-body">
+
+                <form method="post" action="AddingDessert">
+                    <div class="form-group form-inline justify-content-around">
+                        <label>Dessert Name</label>
+                        <input type="text" class="form-control form-control-sm" name="dessertName" placeholder="Enter Dessert Name..">
+                    </div>
+
+
+                    <div class="form-group form-inline justify-content-around">
+                        <label>Dessert Type</label>
+                       @Html.DropDownList("DessertTypesList", ViewBag.dessertTypes as SelectList, "Please Select Dessert Type",
+                         new { @class = "form-control form-control-sm" })
+                    </div>
+
+                    <div class="form-group form-inline justify-content-around">
+                        <label>Dessert Price</label>
+                        <input type="number" class="form-control form-control-sm" name="dessertPrice" placeholder="Enter Price..">
+                    </div>
+
+
+                    <button class="btn btn-primary" type="submit">Add Dessert Product</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-5 mb-4">
+        
+        <!-- Form -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Add User</h6>
+            </div>
+            <div class="card-body">
+
+                <form method="post" action="AddingUsers">
+                    <div class="form-group form-inline justify-content-around">
+                        <label>Username</label>
+                        <input type="text" class="form-control form-control-sm" name="username" placeholder="Enter Username..">
+                    </div>
+
+                    <div class="form-group form-inline justify-content-around">
+                        <label>First Name</label>
+                        <input type="text" class="form-control form-control-sm" name="fname" placeholder="Enter First Name..">
+                    </div>
+
+                    <div class="form-group form-inline justify-content-around">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control form-control-sm" name="lname" placeholder="Enter Last Name..">
+                    </div>
+
+                    <div class="form-group form-inline justify-content-around">
+                        <label>Password</label>
+                        <input type="password" class="form-control form-control-sm" name="password" placeholder="Enter Password..">
+                    </div>
+
+                    <div class="form-group form-inline justify-content-around">
+                        <label>User Type</label>
+                        <select name="role" class="form-control form-control-sm">
+                            <option value="Admin">Admin</option>
+                            <option value="Customer">Customer</option>
+                        </select>
+
+                    </div>
+                    <button class="btn btn-primary" type="submit">Add User</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Content Row -->

@@ -1,0 +1,168 @@
+﻿
+@using DessertApp.ViewModel
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+    List<Dessert> dessertList = ((IEnumerable<Dessert>)ViewData["dessertList"]).ToList();
+}
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Order Desserts</h1>
+
+   
+       
+
+            <!-- Table -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Dessert Products Menu</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        @if (dessertList != null)
+                        {
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Dessert Name</th>
+                                        <th>Dessert Type</th>
+                                        <th>Price</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    @foreach (var dessert in dessertList)
+                                    {
+                                        <tr>
+                                            <td>@dessert.DessertName</td>
+                                            <td>@dessert.DessertType.TypeName</td>
+                                            <td>@dessert.DessertPrice</td>
+                                            <td>
+                                                @using (Html.BeginForm("AddToCart", "Customer", new { productID = dessert.DessertID }, FormMethod.Post))
+                                                {
+                                                    <div class="d-flex justify-content-sm-center">
+                                                        <p>Quantity:</p>
+                                                        <div class="col-3">
+                                                            <input class="form-control form-control-sm" type="number" name="quantity" value="1" min="1" />
+
+                                                        </div>
+
+                                                        <button class="btn btn-primary btn-sm" type="submit">Add To Cart</button>
+                                                    </div>
+
+                                                }
+
+                                            </td>
+
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+                        }
+                        else
+                        {
+                            <p class="text-center">No Dessert Products Available</p>
+                          
+                        }
+                    </div>
+                </div>
+            </div>
+
+
+
+    
+        
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 bg-info">
+                    <div class="d-flex justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-white">Your Cart</h6>
+                     
+                    </div>
+                    
+                    
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+
+                        @if ((List<CartItem>)Session["cart"] != null)
+                        {
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Dessert Name</th>
+                                        <th>Dessert Type</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @{ int totalPrice = 0; }
+                                    @foreach (var product in (List<CartItem>)Session["cart"])
+
+                                    {
+                                        totalPrice += Convert.ToInt32(product.Price);
+                                    <tr>
+                                        <td>@product.ProductName</td>
+                                        <td>@product.ProductType</td>
+                                        <td>@product.OrderQuantity</td>
+                                        <td>@product.Price</td>
+                                        <td>
+                                            <a href="RemoveFromCart?productID=@product.ProductID" class="btn btn-danger btn-sm">Remove</a>
+
+                                        </td>
+
+                                    </tr>
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+                            if (totalPrice != 0)
+                            {
+                                using (Html.BeginForm("ConfirmOrder", "Customer", FormMethod.Post))
+                                {
+                                    <input type="hidden" value="@totalPrice" name="totalPrice" />
+                                    <hr>
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="font-weight-bolder text-info">TOTAL PRICE: Php @totalPrice</h6>
+                                        <button class="btn btn-primary btn-sm" type="submit">Confirm Order</button>
+
+                                    </div>
+
+                                }
+                            }
+
+
+                        }
+                        else
+                        {
+                            <p class="text-center">No Products Added Yet</p>
+                        
+                        }
+
+
+
+                    </div>
+                </div>
+            </div>
+        
+
+
+
+   
+
+</div>
+
+
+

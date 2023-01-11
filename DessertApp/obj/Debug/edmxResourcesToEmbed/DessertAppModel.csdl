@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dessertAppDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Dessert">
+    <Key>
+      <PropertyRef Name="DessertID" />
+    </Key>
+    <Property Name="DessertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DessertName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DessertTypeID" Type="Int32" Nullable="false" />
+    <Property Name="DessertPrice" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="DessertType" Relationship="Self.FK_Dessert_DessertType" FromRole="Dessert" ToRole="DessertType" />
+    <NavigationProperty Name="OrderLines" Relationship="Self.FK_OrderLine_Dessert" FromRole="Dessert" ToRole="OrderLine" />
+  </EntityType>
+  <EntityType Name="DessertType">
+    <Key>
+      <PropertyRef Name="DessertTypeID" />
+    </Key>
+    <Property Name="DessertTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TypeDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Desserts" Relationship="Self.FK_Dessert_DessertType" FromRole="DessertType" ToRole="Dessert" />
+  </EntityType>
+  <EntityType Name="OrderLine">
+    <Key>
+      <PropertyRef Name="OrderlineID" />
+    </Key>
+    <Property Name="OrderlineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="OrderQuantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Dessert" Relationship="Self.FK_OrderLine_Dessert" FromRole="OrderLine" ToRole="Dessert" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_OrderLine_Order" FromRole="OrderLine" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="OrderLines" Relationship="Self.FK_OrderLine_Order" FromRole="Orders" ToRole="OrderLine" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
+    <Property Name="OrderDate" Type="DateTime" Precision="0" />
+    <Property Name="ItemCount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
+  </EntityType>
+  <Association Name="FK_Dessert_DessertType">
+    <End Role="DessertType" Type="Self.DessertType" Multiplicity="1" />
+    <End Role="Dessert" Type="Self.Dessert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DessertType">
+        <PropertyRef Name="DessertTypeID" />
+      </Principal>
+      <Dependent Role="Dessert">
+        <PropertyRef Name="DessertTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderLine_Dessert">
+    <End Role="Dessert" Type="Self.Dessert" Multiplicity="1" />
+    <End Role="OrderLine" Type="Self.OrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dessert">
+        <PropertyRef Name="DessertID" />
+      </Principal>
+      <Dependent Role="OrderLine">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderLine_Order">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderLine" Type="Self.OrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderLine">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dessertAppDBEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Desserts" EntityType="Self.Dessert" />
+    <EntitySet Name="DessertTypes" EntityType="Self.DessertType" />
+    <EntitySet Name="OrderLines" EntityType="Self.OrderLine" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Dessert_DessertType" Association="Self.FK_Dessert_DessertType">
+      <End Role="DessertType" EntitySet="DessertTypes" />
+      <End Role="Dessert" EntitySet="Desserts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderLine_Dessert" Association="Self.FK_OrderLine_Dessert">
+      <End Role="Dessert" EntitySet="Desserts" />
+      <End Role="OrderLine" EntitySet="OrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderLine_Order" Association="Self.FK_OrderLine_Order">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderLine" EntitySet="OrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

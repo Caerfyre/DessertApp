@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "ShowCategories";
+    Layout = "~/Views/Shared/DessertAppTemplate.cshtml";
+    List<DessertType>
+    categList = ((IEnumerable<DessertType>
+        )ViewData["categList"]).ToList();
+}
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Categories</h1>
+
+    <!-- Table -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Dessert Types</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Type ID</th>
+                            <th>Type Name</th>
+                            <th>Type Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @{ int count = 1;}
+                        @foreach (var type in categList)
+                        {
+                            <tr>
+                                <td>@(count++)</td>
+                                <td>@type.DessertTypeID</td>
+                                <td>@type.TypeName</td>
+                                <td>@type.TypeDesc</td>
+                                <td>
+                                    <a href="EditCategory?CategID=@type.DessertTypeID" class="btn btn-primary btn-sm">Edit</a>
+                                    &nbsp;&nbsp;
+                                    <a class="btn btn-danger btn-sm" href="DeleteCategory?CategID=@type.DessertTypeID">Delete</a>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>

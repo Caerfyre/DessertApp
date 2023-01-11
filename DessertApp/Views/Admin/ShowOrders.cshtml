@@ -1,0 +1,79 @@
+﻿
+@model IEnumerable<DessertApp.ViewModel.AllOrders>
+@{
+    ViewBag.Title = "ShowOrders";
+    Layout = "~/Views/Shared/DessertAppTemplate.cshtml";
+
+}
+
+
+<div class="container-fluid">
+
+    <h1 class="h3 mb-2 text-gray-800">Orders</h1>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="d-flex justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">All Customer Orders</h6>
+
+            </div>
+
+
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+        
+                @if (Model != null)
+                {
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer ID</th>
+                                <th>Customer Name</th>                         
+                                <th>Item Count</th>
+                                <th>Total Price</th>
+                                <th>Order Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var order in Model)
+
+                            {
+                            <tr>
+                                <td>@order.OrderID</td>
+                                <td>@order.CustomerID</td>
+                                <td>@order.CustomerFname @order.CustomerLname</td>
+                                <td>@order.ItemCount</td>
+                                <td>@order.TotalPrice</td>
+                                <td>@order.OrderDate</td>
+                                <td>
+                                    <a href="ViewOrderDetails?orderID=@order.OrderID" class="btn btn-primary btn-sm">View Details</a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @*<a href="CancelOrder?orderID=@order.OrderID" class="text-danger">Cancel</a>*@
+
+                                </td>
+                            </tr>
+                            }
+
+
+                        </tbody>
+
+                    </table>
+
+                }
+                else
+                {
+                    <p class="text-center">There are no orders.</p>
+                }
+
+         
+
+            </div>
+        </div>
+    </div>
+
+</div>

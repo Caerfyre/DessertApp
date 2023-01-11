@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "ShowUsers";
+    Layout = "~/Views/Shared/DessertAppTemplate.cshtml";
+    List<User>
+    usersList = ((IEnumerable<User>
+        )ViewData["usersList"]).ToList();
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Users</h1>
+
+    <!-- Table -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">User Accounts</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>UserType</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @*@{ int count = 1;}*@
+                        @foreach (var user in usersList)
+                        {
+                        <tr>
+                            @*<td>@(count++)</td>*@
+                            <td>@user.userID</td>
+                            <td>@user.username</td>
+                            <td>@user.fname</td>
+                            <td>@user.lname</td>
+                            <td>@user.userType</td>
+                            <td>
+                                <a href="EditUser?userID=@user.userID" class="btn btn-primary btn-sm">Edit Role</a>
+                                &nbsp;&nbsp;
+                                <a class="btn btn-danger btn-sm" href="DeleteUser?userID=@user.userID">Delete</a>
+                            </td>
+
+                        </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

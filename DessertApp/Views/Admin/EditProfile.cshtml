@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/DessertAppTemplate.cshtml";
+}
+
+@model DessertApp.User
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Edit Profile</h1>
+
+    <!-- Form -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Edit Your Profile</h6>
+        </div>
+        <div class="card-body">
+
+            <div class="row justify-content-center">
+                @using (Html.BeginForm("EditingProfile", "Admin", FormMethod.Post, new { @class = "col-4 " }))
+                {
+
+                    <div class="form-group ">
+                        <label class="font-weight-bold">User ID:</label>
+                        @Html.DisplayFor(model => model.userID)
+                        @Html.HiddenFor(model => model.userID)
+                    </div>
+                    <div class="form-group ">
+                        <label class="font-weight-bold">Edit Username:</label>
+                        @Html.TextBoxFor(model => model.username, new { @class = "form-control " })
+
+                    </div>
+                    <div class="form-group ">
+                        <label class="font-weight-bold">Edit First Name:</label>
+                        @Html.TextBoxFor(model => model.fname, new { @class = "form-control " })
+
+                    </div>
+                    <div class="form-group ">
+                        <label class="font-weight-bold">Edit Last Name:</label>
+                        @Html.TextBoxFor(model => model.lname, new { @class = "form-control " })
+                    </div>
+                    <div class="form-group ">
+                        <label class="font-weight-bold">Change Password:</label>
+                        @Html.TextBoxFor(model => model.password, new { @class = "form-control " })
+                    </div>
+
+                    @Html.HiddenFor(model => model.userType)
+                    <hr>
+
+                    <button class="btn btn-primary btn-block" type="submit">Edit Profile</button>
+                    <a class="btn btn-dark btn-block" href="@Url.Action("ViewProfile","Admin")">Return</a>
+                }
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+

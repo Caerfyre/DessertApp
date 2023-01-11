@@ -43,21 +43,20 @@ Order History
     <p>Categories</p>
   </div>
   <div align="center">
-    <img src="https://user-images.githubusercontent.com/89372511/211853856-dec9db70-8e6d-47f0-8180-918b430ea746.PNG"></img>
+    <img src="https://user-images.githubusercontent.com/89372511/211853877-e6690d81-ef9d-45d5-9856-9aad4c70266d.PNG"></img>
     <p>Edit Category</p>
   </div>
   <div align="center">
-    <img src="https://user-images.githubusercontent.com/89372511/211853877-e6690d81-ef9d-45d5-9856-9aad4c70266d.PNG"></img>
+    <img src="https://user-images.githubusercontent.com/89372511/211853938-fe1bd313-788a-4a2a-b418-22b97d6817ff.PNG"></img>
     <p>Desert Products</p>
   </div>
   <div align="center">
-    <img src="https://user-images.githubusercontent.com/89372511/211853938-fe1bd313-788a-4a2a-b418-22b97d6817ff.PNG"></img>
+    <img src="https://user-images.githubusercontent.com/89372511/211853951-36aa1ff7-b9ef-40c1-9fbe-b648b55c8a77.PNG"></img>
     <p>Edit Desert</p>
   </div>
 
 
 
-![Capture13](https://user-images.githubusercontent.com/89372511/211853951-36aa1ff7-b9ef-40c1-9fbe-b648b55c8a77.PNG)
 ![Capture14](https://user-images.githubusercontent.com/89372511/211854006-895664ff-1837-4081-ac96-15e9699cd8d3.PNG)
 ![Capture15](https://user-images.githubusercontent.com/89372511/211854040-8fa5d8ea-8532-4cb9-80bd-89fdc8963c21.PNG)
 ![Capture16](https://user-images.githubusercontent.com/89372511/211854071-5a1e80c3-57ae-4d1c-881c-2601c4bed8c8.PNG)

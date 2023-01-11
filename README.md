@@ -95,3 +95,15 @@ Order History
     <p>Order Details</p>
   </div>
 </details>
+<details>
+<summary>All Users View</summary>
+<br>
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211868473-04267c2f-2b0d-47b1-aede-34e5a38f31cd.PNG"></img>
+    <p>User Profile</p>
+  </div>
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211868566-6bbac167-127a-481e-b520-bf0eb4f1173a.PNG"></img>
+    <p>Edit Profile</p>
+  </div>
+</details>

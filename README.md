@@ -6,9 +6,11 @@ Dessert App is a simple dessert management and ordering web application created 
 Categories
 - Create dessert categories or types and add a description.
 - Edit dessert category or type information.
+
 Desert Products
 - Create dessert products by adding their name, type, and price.
 - Edit dessert product information.
+
 Users
 - Create or add a user by adding the following: username, first name, last name, password, and user role (Admin or Customer).
 - Edit user type.
@@ -18,11 +20,13 @@ Order
 - Add dessert items to their cart after selecting a quantity.
 - Remove dessert items from their cart.
 - Place their order.
+
 Order History
 - View order history
 - View order details
 
 ### All Users
+User Profile
 - View user profile
 - Edit user profile
 

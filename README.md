@@ -48,7 +48,7 @@ Order History
   </div>
   <div align="center">
     <img src="https://user-images.githubusercontent.com/89372511/211853938-fe1bd313-788a-4a2a-b418-22b97d6817ff.PNG"></img>
-    <p>Desert Products</p>
+    <p>Dessert Products</p>
   </div>
   <div align="center">
     <img src="https://user-images.githubusercontent.com/89372511/211853951-36aa1ff7-b9ef-40c1-9fbe-b648b55c8a77.PNG"></img>
@@ -68,6 +68,30 @@ Order History
   </div>
   <div align="center">
     <img src="https://user-images.githubusercontent.com/89372511/211854108-e3922a94-41a0-41a7-8c21-737ca10e6c86.PNG"></img>
+    <p>Order Details</p>
+  </div>
+</details>
+<details>
+<summary>Customer View</summary>
+<br>
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211866625-0acc4717-9d2c-45ae-80ec-1a8e733c1c2d.PNG"></img>
+    <p>Customer Dashboard</p>
+  </div>
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211866795-6df716c8-de56-4f39-99d6-de54517166e9.PNG"></img>
+    <p>Dessert Products Menu</p>
+  </div>
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211866930-67767e41-c039-42eb-9576-af4e0e9defb8.PNG"></img>
+    <p>Cart</p>
+  </div>
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211867573-84dd2186-1cb8-4bbe-83fc-8d4bfebe2cb5.PNG"></img>
+    <p>Order History</p>
+  </div>
+  <div align="center">
+    <img src="https://user-images.githubusercontent.com/89372511/211867682-8a1fe499-70d0-43ca-817a-fe873e8463c8.PNG"></img>
     <p>Order Details</p>
   </div>
 </details>

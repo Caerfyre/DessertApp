@@ -111,3 +111,10 @@ User Profile
     <p>Edit Profile</p>
   </div>
 </details>
+
+## Copyright Notice
+This web application was created using a free open source template created by Start Bootstrap called SB Admin 2. All UI components are based on the original design template.
+- Start Bootstrap - SB Admin 2
+- Product Page: https://startbootstrap.com/theme/sb-admin-2
+- Github Page: https://github.com/startbootstrap/startbootstrap-sb-admin-2
+- Created by https://startbootstrap.com/
